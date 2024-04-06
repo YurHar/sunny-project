@@ -9,17 +9,9 @@ const App = () => {
     useEffect(() => {
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         setDarkMode(true);
+      } else {
+        setDarkMode(false)
       }
-  
-      const mediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
-      const handleChange = (e: MediaQueryListEvent) => {
-        setDarkMode(e.matches);
-      };
-      mediaQueryList.addListener(handleChange);
-  
-      return () => {
-        mediaQueryList.removeListener(handleChange);
-      };
     }, []);
   
     const toggleTheme = () => {
