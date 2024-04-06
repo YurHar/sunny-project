@@ -2,6 +2,7 @@ import AboutPageAsync from "@/pages/AboutPage/AboutPage.async";
 import MainPageAsync from "@/pages/MainPage/MainPage.async";
 import { Link, Route, Routes } from "react-router-dom";
 import { Suspense, useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
 
 const App = () => {
     const [darkMode, setDarkMode] = useState(false);
@@ -36,9 +37,9 @@ const App = () => {
             </nav>
 
             <div>
-                <button onClick={toggleTheme} className="absolute top-0 right-0 m-2 p-2">
+                <Button onClick={toggleTheme} className="absolute top-0 right-0 m-2 p-2">
                     Change Theme Mode
-                </button>
+                </Button>
             </div>
 
             <div className="flex-grow py-5">
