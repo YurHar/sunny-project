@@ -4,7 +4,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import { Suspense, useState, useEffect } from "react";
 
 const App = () => {
-    const [darkMode, setDarkMode] = useState<boolean>(false);
+    const [darkMode, setDarkMode] = useState(false);
 
     useEffect(() => {
       if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
