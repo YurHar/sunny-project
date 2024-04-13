@@ -46,7 +46,7 @@ const Theme = ({ type = "dropdown" }: { type?: string }) => {
                     <LucideMoon className="h-6 w-6 text-red-500" />
                 )}
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="min-w-[120px] mr-[1rem] dark:bg-slate-800">
+            <DropdownMenuContent className="min-w-[120px] mr-[1rem] bg-zinc-50 dark:bg-slate-800">
                 {menuItems.map((item: IMenuItems) => {
                     return (
                         <DropdownMenuItem
