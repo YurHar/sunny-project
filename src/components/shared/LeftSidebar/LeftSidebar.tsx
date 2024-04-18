@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { LucideHome, LucideNewspaper, LucideTags, LucideUser2 } from "lucide-react"
+import { LucideHome, LucideNewspaper, LucideTags, LucideUser2, LucideUserCircle, LucideUserX2 } from "lucide-react"
 import { Link, useLocation } from "react-router-dom"
 
 const LeftSidebar = () => {
@@ -70,16 +70,18 @@ const LeftSidebar = () => {
             </div>
 
             <div className="mt-5 flex flex-col gap-5">
-                <Button className="btn-secondary text-zinc-50">
-                    <Link to={"/"}>
-                        Log In
-                    </Link>
-                </Button>
-                <Button className="btn-tertiary text-zinc-50">
-                    <Link to={"/"}>
-                        Sign Up
-                    </Link>
-                </Button>
+                <Link to={"/"}>
+                    <Button className="body-semibold btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 text-zinc-50">
+                        <LucideUserCircle className="h-5 w-5 lg:hidden" />
+                        <span className="max-lg:hidden">Sign In</span>
+                    </Button>
+                </Link>
+                <Link to={"/"}>
+                    <Button className="body-semibold btn-tertiary min-h-[41px] w-full rounded-lg px-4 py-3 text-zinc-50">
+                        <LucideUserX2 className="h-5 w-5 lg:hidden" />
+                        <span className="max-lg:hidden">Sign Up</span>
+                    </Button>
+                </Link>
             </div>
         </section>
     )
