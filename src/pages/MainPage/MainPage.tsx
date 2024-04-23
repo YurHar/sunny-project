@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { LucideArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import PostCard from "@/components/shared/cards/PostCard";
+import UserCard from "@/components/shared/cards/UserCard";
 
 const posts = [
   {
@@ -59,6 +60,47 @@ const posts = [
     upvotesCount: 1,
   },
 ];
+
+const users = [
+  {
+    id: "1",
+    name: "John Doe",
+    nickname: "John001",
+    img: "https://cdn-icons-png.flaticon.com/512/9131/9131529.png",
+    tags: [
+      {
+        id: "1",
+        name: "Node.js",
+        url: "/tags/test",
+      },
+    ],
+  },
+  {
+    id: "2",
+    name: "Alex",
+    nickname: "Alex001",
+    img: "https://ps.w.org/user-avatar-reloaded/assets/icon-256x256.png?rev=2540745",
+    tags: [
+      {
+        id: "1",
+        name: "Node.js",
+        url: "/tags/test",
+      },
+      {
+        id: "2",
+        name: "Javascript",
+        url: "/tags/2",
+      },
+    ],
+  },
+  {
+    id: "3",
+    name: "Sam",
+    nickname: "Sam001",
+    img: "https://cdn-icons-png.flaticon.com/512/9131/9131529.png",
+    tags: [],
+  },
+]
 
 const MainPage = () => {
   return (
@@ -120,6 +162,18 @@ const MainPage = () => {
           <Link to={"/users"} className="flex justify-end gap-3 text-sm font-bold uppercase text-red-500 hover:text-red-400">
             View all Author <LucideArrowRight className="w-5 h-5" />
           </Link>
+        </div>
+        <div className="mt-6 flex flex-wrap justify-around gap-4">
+          {users.map((user) => (
+          <UserCard 
+            key={user.id}
+            id={user.id}
+            name={user.name}
+            nickname={user.nickname}
+            image={user.img}
+            tags={user.tags}
+          />
+        ))}
         </div>
       </section>
     </>

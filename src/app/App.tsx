@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import Navbar from "@/components/shared/Navbar/Navbar";
 import LeftSidebar from "@/components/shared/LeftSidebar/LeftSidebar";
 import RightSidebar from "@/components/shared/RightSidebar/RightSidebar";
+import PostPageAsync from "@/pages/PostPage/PostPage.async";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
             <Suspense fallback={<div>Loading...</div>}>
               <Routes>
                 <Route path="/" element={<MainPageAsync />} />
+                <Route path="/posts" element={<PostPageAsync />} />
                 <Route path="/about" element={<AboutPageAsync />} />
               </Routes>
             </Suspense>

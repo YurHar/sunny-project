@@ -56,7 +56,7 @@ const PostCard = ({
           </time>
 
           <Link to={url}>
-            <h3 className="sm:h3-semibold line-clamp-2 text-zinc-900 dark:text-zinc-200 base-medium flex-1 transition-colors hover:text-red-500">
+            <h3 className="sm:h3-semibold line-clamp-2 text-zinc-900 dark:text-zinc-200 base-medium flex-1 transition-colors hover:text-red-500 dark:hover:text-red-500">
               {title}
             </h3>
           </Link>
