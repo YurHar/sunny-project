@@ -222,4 +222,38 @@
   .subtle-regular {
     @apply text-[10px] font-normal leading-[13px];
   }
+  .article-content h2 {
+    @apply text-2xl font-semibold my-6;
+  }
+  .article-content h3 {
+    @apply text-xl font-semibold my-5;
+  }
+  .article-content h4 {
+    @apply text-lg font-semibold my-5;
+  }
+  .article-content h5 {
+    @apply text-base font-semibold my-4;
+  }
+  .article-content h6 {
+    @apply text-sm font-semibold my-4;
+  }
+  .article-content ul {
+    @apply list-inside list-disc;
+    margin: 1rem 0 1rem 1rem;
+  }
+  .article-content ol {
+    @apply list-inside list-decimal;
+    margin: 1rem 0 1rem 1rem;
+  }
+  .article-content p {
+    margin: 5px 0 15px 0;
+  }
+  .markdown code {
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    padding: 2px;
+    color: #FF7000 !important;
+  }
 }
