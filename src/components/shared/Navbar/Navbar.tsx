@@ -14,6 +14,7 @@ import logo from "@/assets/logo.webp";
 import GlobalSearch from "@/components/shared/GlobalSearch/GlobalSearch";
 import Theme from "@/components/shared/Navbar/Theme";
 import UserMenu from "@/components/shared/Navbar/UserMenu"
+import SidebarMobile from "../LeftSidebar/SidebarMobile";
 
 const Navbar = () => {
   return (
@@ -53,6 +54,7 @@ const Navbar = () => {
 
         <Theme type="dropdown" />
         <UserMenu/>
+        <SidebarMobile/>
       </div>
     </nav>
   );
