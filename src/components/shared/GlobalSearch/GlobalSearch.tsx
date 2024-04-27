@@ -3,6 +3,7 @@ import { LucideHelpCircle, LucideSearch } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import PostSmallCard from "../cards/PostSmallCard";
 import { useState } from "react";
+import { Popover, PopoverContent, PopoverTrigger } from "@radix-ui/react-popover";
 
 const popularTags: any = [
     {
@@ -103,11 +104,16 @@ const users: any = [
 ];
 
 const GlobalSearch = () => {
+    const [showBlock, setShowBlock] = useState(false)
     const [show, setShow] = useState()
 
 
     const handleTagClick = (url) => {
         setShow(url)
+    }
+
+    const handleInputFocus = () => {
+        setShowBlock(true)
     }
 
     return (
@@ -119,66 +125,68 @@ const GlobalSearch = () => {
                         type="text"
                         placeholder="Search Globally"
                         className="paragraph-regular placeholder:text-gray-400 outline-none bg-slate-200 dark:bg-slate-800 no-focus"
+                        onFocus={handleInputFocus}
                     />
                 </div>
-
-                <div className="absolute top-full z-10 mt-3 w-full rounded-xl bg-slate-200 py-5 dark:bg-slate-800">
-                    <div className="flex items-center gap-3 px-5">
-                        <p>Types:</p>
-                        {popularTags.map((tag) => (
-                            <Badge
-                                key={tag.id}
-                                onClick={() => handleTagClick(tag.url)}
-                                className="subtle-medium rounded-md bg-slate-300 px-4 py-2 uppercase
+                {showBlock &&
+                    <div className="absolute top-full z-10 mt-3 w-full rounded-xl bg-slate-200 py-5 dark:bg-slate-800">
+                        <div className="flex items-center gap-3 px-5">
+                            <p>Types:</p>
+                            {popularTags.map((tag) => (
+                                <Badge
+                                    key={tag.id}
+                                    onClick={() => handleTagClick(tag.url)}
+                                    className="subtle-medium rounded-md bg-slate-300 px-4 py-2 uppercase
                                   text-zinc-500 hover:bg-indigo-400 hover:text-zinc-100 dark:bg-slate-800 dark:text-zinc-100 hover:dark:bg-indigo-400 cursor-pointer"
-                            >
-                                {tag.title}
-                            </Badge>
-                        ))}
-                    </div>
-                    <div className="my-5 h-[1px] bg-slate-400/50 dark:bg-slate-500/50"></div>
-                    <h3 className="h3-bold text-zinc-900 dark:text-zinc-200 px-5">
-                        Top Matches
-                    </h3>
-                    <div className="mt-5 flex w-full flex-col gap-[30px] px-5">
-                        {show === "post" ? topPosts.map((post) => (
-                            <PostSmallCard
-                                key={post.id}
-                                id={post.id}
-                                title={post.title}
-                                url={post.url}
-                                image={post.image}
-                            />
-                        )) : show === "question" ?
-                            hotQuestions.map((question) => (
-                                <div className="flex w-full cursor-pointer items-start gap-3 px-5 py-2.5 hover:bg-slate-100 dark:hover:bg-slate-700">
-                                    <LucideHelpCircle className="mt-2 text-zinc-800 dark:text-zinc-200" />
-                                    <span className="flex flex-col" key={question.id}>
-                                        <span className="body-medium text-zinc-700 dark:text-zinc-400 hover:text-red-500 dark:hover:text-red-400">
-                                            {question.text}
-                                        </span>
-                                        <span className="small-medium mt-1 font-bold capitalize text-zinc-500 dark:text-zinc-400">
-                                            {question.title}
-                                        </span>
-                                    </span>
-                                </div>
-                            )) : show === "user" ?
-                                users.map((user) => (
-                                    <div className="flex w-full cursor-pointer items-start gap-3 px-5 py-2.5 hover:bg-slate-100 dark:hover:bg-slate-700" key={user.id}>
-                                        <img src={user.image} alt={user.name} className="h-10 w-12 rounded-md object-cover" />
-                                        <span className="flex flex-col">
-                                            <span className="body-medium line-clamp-1 text-zinc-800 dark:text-zinc-200">
-                                                {user.name}
+                                >
+                                    {tag.title}
+                                </Badge>
+                            ))}
+                        </div>
+                        <div className="my-5 h-[1px] bg-slate-400/50 dark:bg-slate-500/50"></div>
+                        <h3 className="h3-bold text-zinc-900 dark:text-zinc-200 px-5">
+                            Top Matches
+                        </h3>
+                        <div className="mt-5 flex w-full flex-col gap-[30px] px-5">
+                            {show === "post" ? topPosts.map((post) => (
+                                <PostSmallCard
+                                    key={post.id}
+                                    id={post.id}
+                                    title={post.title}
+                                    url={post.url}
+                                    image={post.image}
+                                />
+                            )) : show === "question" ?
+                                hotQuestions.map((question) => (
+                                    <div className="flex w-full cursor-pointer items-start gap-3 px-5 py-2.5 hover:bg-slate-100 dark:hover:bg-slate-700">
+                                        <LucideHelpCircle className="mt-2 text-zinc-800 dark:text-zinc-200" />
+                                        <span className="flex flex-col" key={question.id}>
+                                            <span className="body-medium text-zinc-700 dark:text-zinc-400 hover:text-red-500 dark:hover:text-red-400">
+                                                {question.text}
                                             </span>
                                             <span className="small-medium mt-1 font-bold capitalize text-zinc-500 dark:text-zinc-400">
-                                                {user.type}
+                                                {question.title}
                                             </span>
                                         </span>
                                     </div>
-                                )) : null
-                        }
+                                )) : show === "user" ?
+                                    users.map((user) => (
+                                        <div className="flex w-full cursor-pointer items-start gap-3 px-5 py-2.5 hover:bg-slate-100 dark:hover:bg-slate-700" key={user.id}>
+                                            <img src={user.image} alt={user.name} className="h-10 w-12 rounded-md object-cover" />
+                                            <span className="flex flex-col">
+                                                <span className="body-medium line-clamp-1 text-zinc-800 dark:text-zinc-200">
+                                                    {user.name}
+                                                </span>
+                                                <span className="small-medium mt-1 font-bold capitalize text-zinc-500 dark:text-zinc-400">
+                                                    {user.type}
+                                                </span>
+                                            </span>
+                                        </div>
+                                    )) : null
+                            }
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         </>
     );
