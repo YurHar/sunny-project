@@ -1,6 +1,6 @@
 import withLayout from "@/hoc/withLayout";
-import { lazy } from "react";
 import MainLayout from "@/layouts/MainLayout";
+import { lazy } from "react";
 
 const MainPageAsync = lazy(() => import("./MainPage"));
 

@@ -7,7 +7,7 @@ import {
   selectUserPage,
   selectUserSearchQuery,
   selectUserStatus,
-} from "../slices/userSelectors";
+} from "../userSelectors";
 import UserCard from "./UserCard";
 import Loading from "@/components/shared/Loading/Loading";
 import { Button } from "@/components/ui/button";

@@ -1,21 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import { Provider } from 'react-redux';
+import { Provider } from "react-redux";
 import "./index.css";
-import { store } from './app/store'
 
+import Routes from "./routes";
 import { ThemProvider } from "./context/ThemeProvider";
-import MainRoutes from "./routes";
+import store from "./app/store";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <ThemProvider>
-        <Provider store={store}>
-          <BrowserRouter>
-            <MainRoutes />
-          </BrowserRouter>
-        </Provider>
-    </ThemProvider>
+    <Provider store={store}>
+      <ThemProvider>
+        <BrowserRouter>
+          <Routes />
+        </BrowserRouter>
+      </ThemProvider>
+    </Provider>
   </React.StrictMode>
 );

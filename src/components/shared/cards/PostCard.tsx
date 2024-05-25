@@ -10,7 +10,7 @@ interface Props {
   title: string;
   url: string;
   image: string;
-  createdAt: string;
+  cretedAt: string;
   commentsCount: number;
   viewsCount: number;
   author: any;
@@ -24,7 +24,7 @@ const PostCard = ({
   title,
   url,
   image,
-  createdAt,
+  cretedAt,
   commentsCount,
   viewsCount,
   author,
@@ -50,13 +50,13 @@ const PostCard = ({
         <div>
           <time
             className="subtle-regular line-clamp-1 text-zinc-400 dark:text-zinc-700 hidden"
-            dateTime={createdAt}
+            dateTime={cretedAt}
           >
-            {createdAt}
+            {cretedAt}
           </time>
 
           <Link to={url}>
-            <h3 className="sm:h3-semibold line-clamp-2 text-zinc-900 dark:text-zinc-200 base-medium flex-1 transition-colors hover:text-red-500 dark:hover:text-red-500">
+            <h3 className="sm:h3-semibold line-clamp-2 text-zinc-900 dark:text-zinc-200 base-medium flex-1 transition-colors hover:text-red-500">
               {title}
             </h3>
           </Link>
@@ -73,7 +73,7 @@ const PostCard = ({
         <Metric
           imgUrl={author.image}
           value={author.name}
-          title={`crated ${createdAt}`}
+          title={`crated ${cretedAt}`}
           isAuthor
           href="/"
           textStyles="body-semibold"

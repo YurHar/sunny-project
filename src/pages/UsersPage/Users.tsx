@@ -1,13 +1,13 @@
-import UserList from '@/features/users/components/UserList'
-import UserSearch from '@/features/users/components/UserSearch'
+import UserList from "@/features/users/components/UserList";
+import UserSearch from "@/features/users/components/UserSearch";
 
-const Users = () => {
+const UsersAsync = () => {
   return (
     <div>
-      <UserSearch/>
-      <UserList/>
+      <UserSearch />
+      <UserList />
     </div>
-  )
-}
+  );
+};
 
-export default Users
+export default UsersAsync;
