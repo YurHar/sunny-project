@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import RenderTag from "./RenderTag";
+import RenderTag from "@/components/shared/cards/RenderTag";
 import { Badge } from "@/components/ui/badge";
 
 type tags = {
@@ -13,7 +13,7 @@ interface Props {
   name: string;
   nickname: string;
   image: string;
-  tags: tags[];
+  tags?: tags[];
 }
 
 const UserCard = ({ id, name, nickname, image, tags }: Props) => {
@@ -44,7 +44,7 @@ const UserCard = ({ id, name, nickname, image, tags }: Props) => {
       </div>
 
       <div className="mt-5">
-        {tags.length > 0 ? (
+        {tags && tags.length > 0 ? (
           <div className="flex items-center gap-2">
             {tags.map((tag) => (
               <RenderTag
