@@ -16,6 +16,7 @@ interface Props {
   tags?: tags[];
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const UserCard = ({ id, name, nickname, image, tags }: Props) => {
   return (
     <div
