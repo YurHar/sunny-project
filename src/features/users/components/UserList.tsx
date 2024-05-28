@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchUsersAsync, setPage } from "../slices/userSlice";
